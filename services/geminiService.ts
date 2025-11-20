@@ -50,7 +50,8 @@ export const fetchDinnerRecommendations = async (
 
     return {
       text: text,
-      places: chunks
+      // Cast to any first to bypass strict type checking between SDK types and local types
+      places: chunks as unknown as GeminiResult['places']
     };
 
   } catch (error) {

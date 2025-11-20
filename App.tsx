@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { GeoLocation, AppStep, MoodOption, GeminiResult } from './types';
 import { fetchDinnerRecommendations } from './services/geminiService';
 import MoodSelector from './components/MoodSelector';
@@ -10,7 +10,6 @@ const App: React.FC = () => {
   const [location, setLocation] = useState<GeoLocation | null>(null);
   const [errorMsg, setErrorMsg] = useState<string>('');
   const [result, setResult] = useState<GeminiResult | null>(null);
-  const [selectedMood, setSelectedMood] = useState<MoodOption | null>(null);
 
   // Handle Geolocation
   const handleGetLocation = () => {
@@ -47,7 +46,6 @@ const App: React.FC = () => {
   const handleMoodSelect = async (mood: MoodOption) => {
     if (!location) return;
     
-    setSelectedMood(mood);
     setStep(AppStep.LOADING);
     
     try {
