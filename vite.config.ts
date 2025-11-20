@@ -4,7 +4,6 @@ import react from '@vitejs/plugin-react';
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   // 載入環境變數
-  // 使用 '.' 代替 process.cwd() 以避免 TypeScript 類型錯誤 (Property 'cwd' does not exist on type 'Process')
   const env = loadEnv(mode, '.', '');
   
   return {
@@ -13,7 +12,7 @@ export default defineConfig(({ mode }) => {
     base: './',
     define: {
       // 將 process.env.API_KEY 替換為實際的 Key 字串
-      // 這樣前端程式碼中的 process.env.API_KEY 就能讀取到值
+      // 這樣前端程式碼中的 process.env.API_KEY 就能讀取到 GitHub Secrets 的值
       'process.env.API_KEY': JSON.stringify(env.API_KEY)
     }
   };
