@@ -1,0 +1,7 @@
+{
+  "name": "Copy of Dinner Vibe - 晚餐吃什麼",
+  "description": "A smart dinner recommendation app that uses your location and AI to find the perfect place to eat based on your current mood.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
